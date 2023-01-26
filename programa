@@ -1,0 +1,65 @@
+    <script>
+        function pulaLinha() {
+            document.write("<br>");
+        }
+
+        function mostra(frase) {
+            document.write(frase);
+            pulaLinha();
+        }
+
+        function calculaIdade(anoCorrente, anoNascimento) {
+            return idadeCalculado = anoCorrente - anoNascimento;
+        }
+        
+        function calculaImc(peso, altura) {
+            return imc = peso / (altura * altura);
+        }
+        
+        function verificaImc() {
+            if (imc <= 18.4 ) {
+                mostra(" - Você está abaixo do recomando (MAGREZA)");
+            }
+    
+            if (imc >= 18.5 && imc <= 24.9) {
+                mostra(" - Você está no recomendado (NORMAL)");
+            }
+    
+            if (imc >= 25 && imc <=29.9) {
+                mostra(" - Você está acima do recomendado (SOBREPESO)");
+            }
+            
+            if (imc > 30) {
+                mostra(" - Você está muito acima do recomendado (OBESIDADE)");
+            }          
+        }
+
+        var anoCorrente =  parseInt(prompt("Informe o ANO ATUAL: "));
+
+        var totalParticipantes = parseInt(prompt("Informe a QUANTIDADE de PARTICIPANTES: "));
+
+        mostra("Ano: " + anoCorrente);
+        
+        pulaLinha();
+
+        for (var numero = 1; numero <= totalParticipantes; numero++) {
+            var nome = prompt("Informe o NOME do participante número ( " + numero + " ) :");
+            var anoNascimento = prompt("Informe o ANO DO NASCIMENTO do participante ( " + numero + " ) :");
+            var altura = prompt("Informe a ALTURA do participante número ( " + numero + " ) :");
+            var peso = prompt("Informe o PESO do participante número ( " + numero + " ) :");
+            var idade = calculaIdade(anoCorrente, anoNascimento);
+            var imc = calculaImc(peso, altura);             
+
+            mostra("Participante número ( " + numero + " ):");
+            mostra("Nome: " + nome);
+            mostra("Idade: " + idade + " anos");
+            mostra("Altura: " + altura + " m");
+            mostra("Peso: " + peso + " kg");
+            document.write("IMC: " + Math.round(imc)); 
+            verificaImc();
+            mostra("..........");
+    
+            pulaLinha(); 
+        }
+
+    </script>
